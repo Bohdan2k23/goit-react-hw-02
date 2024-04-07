@@ -1,0 +1,4 @@
+.option_btns {
+  display: flex;
+  gap: 8px;
+}
