@@ -27,10 +27,20 @@ export default function Options({
 
   return (
     <div className={css.option_btns}>
-      <button onClick={update("good")}>Good</button>
-      <button onClick={update("neutral")}>Neutral</button>
-      <button onClick={update("bad")}>Bad</button>
-      {!!total && <button onClick={reset}>Reset</button>}
+      <button className={css.option_btn} onClick={update("good")}>
+        Good
+      </button>
+      <button className={css.option_btn} onClick={update("neutral")}>
+        Neutral
+      </button>
+      <button className={css.option_btn} onClick={update("bad")}>
+        Bad
+      </button>
+      {!!total && (
+        <button className={css.option_btn} onClick={reset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 }
