@@ -4,12 +4,12 @@ import css from "./Feedback.module.css";
 export default function Feedback({
   types,
   total,
+  positive,
 }: {
   types: State;
   total: number;
+  positive: number;
 }) {
-  const positive = Math.round((types.good / total) * 100);
-
   return (
     <ul className={css.feedback_list}>
       <li>Good: {types.good}</li>

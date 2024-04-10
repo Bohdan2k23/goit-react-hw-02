@@ -22,11 +22,11 @@ export default function App() {
     return local ? JSON.parse(local) : initialTypes;
   });
 
-  const [total, setTotal] = useState(0);
+  const total = Object.values(types).reduce((a, b) => a + b);
+  const positive = Math.round((types.good / total) * 100);
 
   useEffect(() => {
     localStorage.setItem(localKey, JSON.stringify(types));
-    setTotal(Object.values(types).reduce((a, b) => a + b));
   }, [types]);
 
   return (
@@ -38,7 +38,11 @@ export default function App() {
         localKey={localKey}
         total={total}
       />
-      {total > 0 ? <Feedback types={types} total={total} /> : <Notification />}
+      {total > 0 ? (
+        <Feedback positive={positive} types={types} total={total} />
+      ) : (
+        <Notification />
+      )}
     </>
   );
 }
